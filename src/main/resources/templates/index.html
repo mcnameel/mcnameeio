@@ -10,11 +10,12 @@
 
 <aside>
     <h2>Recent Posts</h2>
-    <a href="#" th:each="p : ${latest5posts}" th:text="${p.title}"
-       th:href="@{/posts/view/{id}/(id=${p.id})}">Work Begins on HTML5.1</a>
+    <a href="#" th:each="p : ${latest5posts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}"></a>
 </aside>
 
 <main id="posts">
+    <p>This open forum was designed to provide a place for people to descuss and share stories regarding any of the
+        intersectional issues of gendered violence.</p>
     <article th:each="p : ${latest3posts}">
         <h2 class="title" th:text="${p.title}">Post Title</h2>
         <div class="date">
@@ -30,6 +31,5 @@
 
 <footer th:replace="layout :: site-footer" ></footer>
 </body>
-
 </html>
 
