@@ -3,9 +3,10 @@ package io.mcnamee.service;
 import io.mcnamee.dal.PostDAO;
 import io.mcnamee.domain.Post;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class PostServiceImpl implements PostService {
 
     @Autowired
