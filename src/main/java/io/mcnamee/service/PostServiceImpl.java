@@ -6,11 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+
 @Service
 public class PostServiceImpl implements PostService {
 
+    private final PostDAO postDAO;
+
     @Autowired
-    PostDAO postDAO;
+    public PostServiceImpl(PostDAO postDAO) {
+        this.postDAO = postDAO;
+    }
 
     @Override
     public List<Post> getPostBoard(Long firstId) {
@@ -25,7 +31,7 @@ public class PostServiceImpl implements PostService {
         List<Post> posts = postDAO.getPostById(firstId);
 
         for (Post p : posts)
-            if (p.getId() == firstId)
+            if (Objects.equals(p.getId(), firstId))
                 returnMe = p;
 
         return returnMe;
@@ -34,11 +40,6 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<Post> getNewPosts() {
         return postDAO.getRecentPosts();
-    }
-
-    @Override
-    public void createPost(String from, String to, String body, String subject) {
-
     }
 
     @Override

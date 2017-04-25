@@ -18,8 +18,12 @@ import static java.util.stream.Collectors.toList;
 @Controller
 public class PostController {
 
+	private final PostService postService;
+
 	@Autowired
-	private PostService postService;
+	public PostController(PostService postService) {
+		this.postService = postService;
+	}
 
 	@RequestMapping("/")
 	public String home(Model model) {
@@ -48,14 +52,14 @@ public class PostController {
 		return "redirect:/";
 	}
 
-
-	@RequestMapping("/posts/view/{id}")
+	@RequestMapping(value = "/posts/view/{id}", method = RequestMethod.GET)
 	public String viewPost(@PathVariable("id") Long id, Model model) {
+
 		Post post = postService.getPost(id);
 
-
 		model.addAttribute("post", post);
-		return "/posts/index";
+
+		return "posts/index";
 	}
 
 }

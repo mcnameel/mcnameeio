@@ -26,12 +26,7 @@ public interface PostService {
     /**
      * This method adds the message to the sql table and should also create call upon the
      * hashMe to create the hash code for the string
-     * @param from id of the sender
-     * @param to id of the recipient
-     * @param body string of the message
-     * @param subject subject of the message
-     * @return message that is created
+     * @param post to add to the database
      */
-    void createPost(String from, String to, String body, String subject);
     void createPost(Post post);
 }

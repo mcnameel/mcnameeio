@@ -19,8 +19,12 @@ import java.util.List;
 @Component
 public class PostDAOImpl implements PostDAO {
 
+	private final JdbcTemplate jdbcTemplate;
+
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	public PostDAOImpl(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 
 
 	@Override
