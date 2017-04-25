@@ -43,7 +43,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> getNewPosts() {
-        return postDAO.getRecentPosts();
+        return postDAO.get20RecentPosts();
     }
 
     @Override

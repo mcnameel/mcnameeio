@@ -8,23 +8,25 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface PostDAO {
-	
+
 	List<Post> getPostById(Long id);
 
 	List<Post> getPostsInRange(Long id1, Long id2);
 
-	List<Post> getRecentPosts();
+	List<Post> get5RecentPosts();
+
+	List<Post> get20RecentPosts();
 
 	List<Post> getRecentPostsStartingWith(Long id);
 
-		/**
-         * creates a new post
-         * @param post
-         */
+	/**
+	 * creates a new post
+	 *
+	 * @param post
+	 */
 	void createPost(Post post);
 
-	class PostRowMapper implements RowMapper
-	{
+	class PostRowMapper implements RowMapper {
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 
 			Post post = new Post();

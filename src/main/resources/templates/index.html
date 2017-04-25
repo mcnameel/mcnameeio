@@ -10,13 +10,12 @@
 
 <aside>
     <h2>Recent Posts</h2>
-    <a href="#" th:each="p : ${latest5posts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}"></a>
+    <a href="#" th:each="p : ${miniPosts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}"></a>
 </aside>
-
+<h3>This open forum was designed to provide a place for people to descuss and share stories regarding any of the
+    intersectional issues of gendered violence.</h3>
 <main id="posts">
-    <p>This open forum was designed to provide a place for people to descuss and share stories regarding any of the
-        intersectional issues of gendered violence.</p>
-    <article th:each="p : ${latest3posts}">
+    <article th:each="p : ${fullPosts}">
         <h2 class="title" th:text="${p.title}">Post Title</h2>
         <div class="date">
             <i>Posted on</i>

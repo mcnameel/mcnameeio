@@ -50,9 +50,9 @@ public class PostDAOImpl implements PostDAO {
 	}
 
 	@Override
-	public List<Post> getRecentPosts() {
+	public List<Post> get5RecentPosts() {
 
-		final String sql = "SELECT * FROM posts ORDER BY created LIMIT 5";
+		final String sql = "SELECT * FROM posts ORDER BY created DESC LIMIT 5";
 
 		return jdbcTemplate.query(
 				sql,
@@ -63,7 +63,19 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<Post> getRecentPostsStartingWith(Long id) {
 
-		final String sql = "SELECT * FROM posts ORDER BY created LIMIT 5";
+		final String sql = "SELECT * FROM posts ORDER BY created DESC LIMIT 5";
+
+		return jdbcTemplate.query(
+				sql,
+				new PostRowMapper()
+		);
+	}
+
+
+	@Override
+	public List<Post> get20RecentPosts() {
+
+		final String sql = "SELECT * FROM posts ORDER BY created DESC LIMIT 20";
 
 		return jdbcTemplate.query(
 				sql,

@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-
 /**
  * Controller handles messageCalls in html
  * Created by Andre Ellis on 04/06/2017
@@ -28,12 +26,11 @@ public class PostController {
 	@RequestMapping("/")
 	public String home(Model model) {
 
-		List<Post> latest5Posts = postService.getNewPosts();
-		model.addAttribute("latest5posts", latest5Posts);
+		List<Post> posts = postService.getNewPosts();
 
-		List<Post> latest3Posts = latest5Posts.stream()
-				.limit(3).collect(toList());
-		model.addAttribute("latest3posts", latest3Posts);
+		model.addAttribute("miniPosts", posts);
+
+		model.addAttribute("fullPosts", posts);
 
 		return "index";
 	}
