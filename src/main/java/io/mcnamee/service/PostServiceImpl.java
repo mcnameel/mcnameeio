@@ -49,7 +49,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public void createPost(Post post) {
 
-        postDAO.createMessage(post);
+        postDAO.createPost(post);
 
         databaseController.saveDataToScript();
     }
