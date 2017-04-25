@@ -21,7 +21,7 @@ public interface PostDAO {
          * creates a new post
          * @param post
          */
-	void createMessage(Post post);
+	void createPost(Post post);
 
 	class PostRowMapper implements RowMapper
 	{

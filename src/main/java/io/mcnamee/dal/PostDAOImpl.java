@@ -16,7 +16,6 @@ import java.util.List;
  *
  */
 @Repository
-@Component
 public class PostDAOImpl implements PostDAO {
 
 	private final JdbcTemplate jdbcTemplate;
@@ -25,7 +24,6 @@ public class PostDAOImpl implements PostDAO {
 	public PostDAOImpl(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-
 
 	@Override
 	public List<Post> getPostsInRange(Long id1, Long id2) {
@@ -73,11 +71,8 @@ public class PostDAOImpl implements PostDAO {
 		);
 	}
 
-	/* (non-Javadoc)
-                 * @see edu.xavier.csci260.atinlay.dal.PostDAO#createMessage(edu.xavier.csci260.atinlay.domain.EmployeeModels.EmployeeAbstract, edu.xavier.csci260.atinlay.domain.EmployeeModels.EmployeeAbstract)
-                 */
 	@Override
-	public void createMessage(Post post) {
+	public void createPost(Post post) {
 
 		final String sql = "INSERT INTO posts (author, title, body) VALUES (?,?,?)";
 
