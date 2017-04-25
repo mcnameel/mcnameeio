@@ -1,5 +1,6 @@
 package io.mcnamee.service;
 
+import io.mcnamee.dal.DatabaseController;
 import io.mcnamee.dal.PostDAO;
 import io.mcnamee.domain.Post;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,12 @@ public class PostServiceImpl implements PostService {
 
     private final PostDAO postDAO;
 
+    private DatabaseController databaseController;
+
     @Autowired
-    public PostServiceImpl(PostDAO postDAO) {
+    public PostServiceImpl(PostDAO postDAO, DatabaseController databaseController) {
         this.postDAO = postDAO;
+        this.databaseController = databaseController;
     }
 
     @Override
@@ -46,5 +50,7 @@ public class PostServiceImpl implements PostService {
     public void createPost(Post post) {
 
         postDAO.createMessage(post);
+
+        databaseController.saveDataToScript();
     }
 }
