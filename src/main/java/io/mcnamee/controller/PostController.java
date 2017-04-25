@@ -21,17 +21,6 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 
-	/*
-	 *this method will handle call in messages.html and give an array of all messages
-	 */
-	@RequestMapping(value = "/intersections/templates.posts")
-	public String posts(Model model) {
-
-		model.addAttribute("templates/posts", postService.getNewPosts()); //find a way to get usernameService
-
-		return "templates/posts";
-	}
-
 	@RequestMapping("/")
 	public String home(Model model) {
 
@@ -43,16 +32,6 @@ public class PostController {
 		model.addAttribute("latest3posts", latest3Posts);
 
 		return "index";
-	}
-
-	@RequestMapping("/templates/posts/{id}")
-	public String view(@PathVariable("id") Long id, Model model) {
-
-		Post post = postService.getPost(id);
-
-		model.addAttribute("post", post);
-
-		return "posts/view";
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
