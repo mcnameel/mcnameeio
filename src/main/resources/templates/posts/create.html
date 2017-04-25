@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+    <title>Contemplitive</title>
+</head>
+
+<body>
+    <header th:replace="layout :: site-header" ></header>
+
+    <form action="#" th:action="@{/create}" th:object="${post}" method="post">
+        <p>Author: <input type="text" th:field="*{author}" /></p>
+        <p>Title: <input type="text" th:field="*{title}" /></p>
+        <p>Body: <input type="text" th:field="*{body}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

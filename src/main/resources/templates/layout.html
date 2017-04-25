@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="site-head">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../public/css/styles.css" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" href="../public/css/bootstrap-theme.min.css" th:href="@{/css/}" />
+    <link rel="icon" href="../public/img/favicon.ico" th:href="@{/img/favicon.ico}" />
+    <script src="../public/js/jquery-3.1.0.min.js" th:src="@{/js/jquery-3.1.0.min.js}"></script>
+    <script src="../public/js/blog-scripts.js" th:src="@{/js/blog-scripts.js}"></script>
+    <meta th:include="this :: head" th:remove="tag"/>
+</head>
+
+<body>
+
+<header th:fragment="site-header" th:remove="tag">
+    <header>
+        <a href="index.html" th:href="@{/}"><img src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
+        <a href="index.html" th:href="@{/}">Home</a>
+        <a href="posts/index.html" th:href="@{/posts}">Posts</a>
+        <a href="posts/create.html" th:href="@{/create}">Create Post</a>
+    </header>
+
+</header>
+
+
+<h1>Welcome</h1>
+<p>Welcome to the Spring MVC Blog.</p>
+</body>
+
+</html>
