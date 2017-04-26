@@ -20,7 +20,7 @@ body>header>a>img, body>header a  {
 }
 .col-sm-4 {
     overflow: hidden;
-    background: #d3c7d3;
+    background: rgba(18, 172, 171, 0.5);
     max-width: 410px;
 }
 

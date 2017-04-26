@@ -1,18 +1,8 @@
-SET DB_CLOSE_DELAY -1;        
-;             
-CREATE USER IF NOT EXISTS SA SALT 'f71278c42f0fb757' HASH 'f745cacc2056c60e4a67963d87dff40f4c9a0581d00081d3c17f6b6ea082a23e' ADMIN;           
-CREATE SEQUENCE PUBLIC.SYSTEM_SEQUENCE_4BF11508_1741_469D_83BF_B83BA80CF2C7 START WITH 5 BELONGS_TO_TABLE;    
-CREATE MEMORY TABLE PUBLIC.POSTS(
-    ID INTEGER DEFAULT (NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_4BF11508_1741_469D_83BF_B83BA80CF2C7) NOT NULL NULL_TO_DEFAULT SEQUENCE PUBLIC.SYSTEM_SEQUENCE_4BF11508_1741_469D_83BF_B83BA80CF2C7,
-    AUTHOR VARCHAR(60) DEFAULT 'anonymous',
-    BODY VARCHAR(5000) NOT NULL,
-    TITLE VARCHAR(255),
-    CREATED DATETIME DEFAULT CURRENT_TIMESTAMP()
-);           
-ALTER TABLE PUBLIC.POSTS ADD CONSTRAINT PUBLIC.CONSTRAINT_4 PRIMARY KEY(ID);  
--- 4 +/- SELECT COUNT(*) FROM PUBLIC.POSTS;   
-INSERT INTO PUBLIC.POSTS(ID, AUTHOR, BODY, TITLE, CREATED) VALUES
-(1, 'Luke', STRINGDECODE('so im creating a cool website yo\r\nyeah pretty legit'), 'My Story', TIMESTAMP '2017-04-25 19:25:22.812'),
-(2, 'poop', 'qrljhqwhvqw ro biy KWEFOIWBSDOI', 'superpoop', TIMESTAMP '2017-04-25 19:54:34.936'),
-(3, 'ok', 'elibefiberfvbiaefbi q grui iuqebioeqbiqve  bive q biqve bivefqbio veqo biveq biuvqrep qr ioqyervbfqe irylsbqoe riybqe lriklqie riqe rblqwerhbeq rqeihe  lbi qri ri riq rbiqr  biuqw  biuluqw fl biuueqg rvgiuyefadhsj words', 'mike suycks', TIMESTAMP '2017-04-25 20:02:00.172'),
-(4, 'Hello world', 'this is so legit manneeee', 'yup', TIMESTAMP '2017-04-26 11:41:19.063');       
+DROP TABLE posts IF EXISTS;
+CREATE TABLE posts(
+    id INTEGER AUTO_INCREMENT Primary Key,
+    author VARCHAR(60) DEFAULT 'anonymous',
+    body VARCHAR(5000) NOT NULL,
+    title VARCHAR(255),
+    created DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
