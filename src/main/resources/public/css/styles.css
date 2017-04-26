@@ -10,9 +10,26 @@ body>header>a>img, body>header a  {
     font-size: 1.2em;
 }
 
+.container {
+    overflow: hidden;
+    max-width(sm: 420px,
+    md: 720px,
+    lg: 960px,
+);
+
+}
 .col-sm-4 {
+    overflow: hidden;
     background: #d3c7d3;
-    outline: auto;
+    max-width: 410px;
+}
+
+body, html {
+    overflow-x: hidden;
+} /* fix */
+
+body > .container > *{
+    overflow: show;
 }
 
 body>footer {
