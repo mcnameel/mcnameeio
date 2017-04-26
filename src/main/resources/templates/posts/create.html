@@ -8,11 +8,15 @@
     <header th:replace="layout :: site-header" ></header>
 
     <i>Please be respectful.</i>
-    <form action="#" th:action="@{/create}" th:object="${post}" method="post">
-        <p>Author: <input type="text" th:field="*{author}" th:maxlength="60"/></p>
-        <p>Title: <input type="text" th:field="*{title}" th:maxlength="255"/></p>
-        <p>Body: <textarea type="text" th:rows="8" th:cols="100" th:field="*{body}" th:maxlength="5000"/></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+    <div class="container">
+        <div class="row">
+            <form action="#" th:action="@{/create}" th:object="${post}" method="post">
+                <p>Author: <input type="text" th:field="*{author}" th:maxlength="60"/></p>
+                <p>Title: <input type="text" th:field="*{title}" th:maxlength="255"/></p>
+                <p>Body: <textarea type="text" th:rows="8" th:cols="100" th:field="*{body}" th:maxlength="5000"/></p>
+                <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
