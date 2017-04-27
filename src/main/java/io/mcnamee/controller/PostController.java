@@ -11,9 +11,10 @@ import java.util.List;
 
 /**
  * Controller handles messageCalls in html
- * Created by Andre Ellis on 04/06/2017
+ * Created by Luke on 04/06/2017
  */
 @Controller
+@RequestMapping("/contemplative/*")
 public class PostController {
 
 	private final PostService postService;
@@ -23,7 +24,7 @@ public class PostController {
 		this.postService = postService;
 	}
 
-	@RequestMapping("/")
+	@RequestMapping
 	public String home(Model model) {
 
 		List<Post> posts = postService.getNewPosts();
@@ -32,31 +33,31 @@ public class PostController {
 
 		model.addAttribute("fullPosts", posts);
 
-		return "index";
+		return "contemplative/index";
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String greetingSubmit2(@ModelAttribute Post post) {
 
-		return "posts/create";
+		return "contemplative/posts/create";
 	}
 
-	@PostMapping("/create")
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String greetingSubmit(@ModelAttribute Post post) {
 
 		postService.createPost(post);
 
-		return "redirect:/";
+		return "redirect:/contemplative/";
 	}
 
-	@RequestMapping(value = "/posts/view/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/posts/{id}", method = RequestMethod.GET)
 	public String viewPost(@PathVariable("id") Long id, Model model) {
 
 		Post post = postService.getPost(id);
 
 		model.addAttribute("post", post);
 
-		return "posts/index";
+		return "contemplative/posts/index";
 	}
 
 }

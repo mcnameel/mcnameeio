@@ -12,8 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @author chris
- *
+ * @author Luke
  */
 @Repository
 public class PostDAOImpl implements PostDAO {

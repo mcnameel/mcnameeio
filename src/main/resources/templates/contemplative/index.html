@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout :: site-head">
+<head th:replace="/layout :: site-head">
     <title>Contemplitive</title>
 </head>
 
@@ -10,7 +10,7 @@
 
 <aside>
     <h2>Recent Posts</h2>
-    <a href="#" th:each="p : ${miniPosts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}"></a>
+    <a href="#" th:each="p : ${miniPosts}" th:text="${p.title}" th:href="@{/contemplative/posts/{id}/(id=${p.id})}"></a>
 </aside>
 <div class="container-fluid">
         <h3>This open forum was designed to provide a place for people to discuss and share stories regarding any of the
