@@ -1,14 +1,9 @@
 package io.mcnamee.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-import javax.sql.DataSource;
 
 /**
  * Created by Luke on 3/12/2017.
@@ -17,13 +12,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private final DataSource dataSource;
-
-    @Autowired
-    public WebSecurityConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
 
     /**
      * configuration for the springboot server
@@ -39,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .and()
                 .authorizeRequests()
-                    .antMatchers("/contemplative/**", "/").permitAll()
+                    .antMatchers("/contemplative/**", "/", "/layout").permitAll()
                     .antMatchers("/css/**", "/img/**", "/js/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
